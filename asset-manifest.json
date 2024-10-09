@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/warehouse-management/static/css/main.dd1ea7b7.css",
+    "main.js": "/warehouse-management/static/js/main.106eeb7a.js",
+    "index.html": "/warehouse-management/index.html",
+    "main.dd1ea7b7.css.map": "/warehouse-management/static/css/main.dd1ea7b7.css.map",
+    "main.106eeb7a.js.map": "/warehouse-management/static/js/main.106eeb7a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd1ea7b7.css",
+    "static/js/main.106eeb7a.js"
+  ]
+}
