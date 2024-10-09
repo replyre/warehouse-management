@@ -1,70 +1,91 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Warehouse Management Application
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+This project is a React-based two-page application for managing warehouses. It includes features for listing, searching, filtering, and editing warehouse information. The application uses Redux for state management, React Router for navigation, and Ant Design for the UI components. The project aims to provide an optimized, modular, and user-friendly experience.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Page 1: Warehouse Listing
+![image](https://github.com/user-attachments/assets/484b03fe-828b-41ad-9403-97c27ec0706e)
 
-### `npm test`
+- **Search**: Users can search warehouses by name.
+- **Filter**: Users can filter warehouses based on:
+  - City
+  - Cluster
+  - Space available limit
+- **Warehouse List**: Displays a list of warehouses from a JSON dataset in a highly modular and efficient format.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Page 2: Warehouse Details & Editing
+![image](https://github.com/user-attachments/assets/e2ff2c3b-3749-4c8d-9f09-ffc9b436075a)
 
-### `npm run build`
+- **View Details**: Clicking on a warehouse in the listing redirects to its detailed page.
+- **Edit Functionality**: Users can edit the warehouse’s:
+  - Name
+  - City
+  - Cluster
+  - Space available
+  - Live status
+- **Custom Fields**: Users can add custom fields to each warehouse.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **ReactJS**: Frontend framework for building the UI.
+- **Redux**: State management to handle data efficiently across the app.
+- **React Router**: For seamless navigation between listing and details pages.
+- **Ant Design**: UI framework for a responsive and elegant user interface.
+- **HTML5 & CSS**: For layout and styling following basic web conventions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/warehouse-management.git
+   cd warehouse-management
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Start the application:
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## State Management
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The application uses Redux for global state management. The warehouse data is stored in the Redux store, and efficient state handling is achieved using a redux map to optimize store calls.
 
-## Learn More
+### Reducers and Actions
+- **warehouseReducer**: Manages the warehouse data including fetching, filtering, and updating details.
+- **actions**: Includes actions for loading the dataset, updating warehouse details, and managing filters and custom fields.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Routing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+React Router is used to handle navigation between pages:
+- **/**: Lists all the warehouses (Homepage).
+- **/warehouses/:id**: Displays the details of a selected warehouse and allows editing.
 
-### Code Splitting
+## UI Components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The application makes use of **Ant Design** components for creating forms, tables, and modals, ensuring a responsive and interactive user experience.
 
-### Analyzing the Bundle Size
+## Dataset
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The warehouse data is loaded from a JSON file (`warehouses.json`). The dataset includes fields such as:
+- `name`
+- `code`
+- `city`
+- `space available`
+- `cluster`
+- `is_registered`
+- `is_live`
 
-### Making a Progressive Web App
+## Optimization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Redux is used for efficient data handling, with selective re-rendering and redux maps to minimize unnecessary state changes.
+- Ant Design tables are used for optimized display and sorting of large datasets.
