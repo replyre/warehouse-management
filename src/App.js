@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setWarehouses } from "./redux/store";
+import warehouseData from "./data/warehouse.json";
+import WarehouseList from "./components/WarehouseList";
+import WarehouseDetail from "./components/WarehouseDetail";
+import { Layout } from "antd";
+import "antd/dist/reset.css"; // New Ant Design style reset
 
-function App() {
+const { Header, Content } = Layout;
+
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setWarehouses(warehouseData));
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <Layout>
+        <Header
+          style={{ color: "#fff", fontSize: "24px", textAlign: "center" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Warehouse Management
+        </Header>
+        <Content style={{ padding: "20px" }}>
+          <Routes>
+            <Route path="/" element={<WarehouseList />} />
+            <Route path="/warehouse/:id" element={<WarehouseDetail />} />
+          </Routes>
+        </Content>
+      </Layout>
+    </Router>
   );
-}
+};
 
 export default App;
